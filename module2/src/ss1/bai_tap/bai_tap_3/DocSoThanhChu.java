@@ -7,7 +7,6 @@ public class DocSoThanhChu {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập số cần đọc (0-999): ");
         int number = Integer.parseInt(sc.nextLine());
-
         String result = "";
         if (number < 0 || number > 999) {
             result = "Nhập lại trong khoảng (0-999)";

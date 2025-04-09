@@ -28,9 +28,11 @@ public class TinhTongCacSoOMotCotXacDinh {
         System.out.println("Nhập số cột cần tính tổng: ");
         int number = Integer.parseInt(scanner.nextLine());
         int sum = 0;
-        for (int i = 0; i < number; i++) {
+        for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                sum += array[i][j];
+                if (j == number - 1) {
+                    sum += array[i][j];
+                }
             }
         }
         System.out.println("Tổng số cột : " + number + " là: " + sum);

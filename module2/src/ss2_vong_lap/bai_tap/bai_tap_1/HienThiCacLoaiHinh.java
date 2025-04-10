@@ -12,7 +12,7 @@ public class HienThiCacLoaiHinh {
             System.out.println("2. Print the square triangle (top-left, top-right, botton-left, botton-right)");
             System.out.println("3. Print isosceles triangle");
             System.out.println("4. Exit");
-            System.out.println("Enter yout choice: ");
+            System.out.println("Enter your choice: ");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:

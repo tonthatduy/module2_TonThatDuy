@@ -1,7 +1,9 @@
 package ss4_oop.bai_tap.bai_tap_1.xay_dung_lop_phuong_trinh_bac_hai;
 
 public class QuadraticEquation {
-    private double a, b, c;
+    private double a;
+    private double b;
+    private double c;
 
     public QuadraticEquation() {
     }
@@ -47,8 +49,9 @@ public class QuadraticEquation {
     public double getRoot2() {
         return (-this.b - Math.sqrt(getDiscriminant())) / (2 * this.a);
     }
-    public double getRoot3(){
-        return -this.b / (2*this.a);
+
+    public double getRoot3() {
+        return -this.b / (2 * this.a);
     }
 
     public String display() {

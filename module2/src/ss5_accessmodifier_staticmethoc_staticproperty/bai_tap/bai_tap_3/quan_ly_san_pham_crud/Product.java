@@ -1,12 +1,11 @@
 package ss5_accessmodifier_staticmethoc_staticproperty.bai_tap.bai_tap_3.quan_ly_san_pham_crud;
 
+import java.text.DecimalFormat;
+
 public class Product {
     private int id;
     private String name;
     private double price;
-
-    Product() {
-    }
 
     Product(int id, String name, double price) {
         this.id = id;
@@ -40,10 +39,11 @@ public class Product {
 
     @Override
     public String toString() {
-        return "DanhSach{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
+        DecimalFormat df = new DecimalFormat("#,###");
+        return "List{" +
+                "id= " + id +
+                ", name= '" + name + '\'' +
+                ", price= " + df.format(price) + " VNĐ" +
                 '}';
     }
 }

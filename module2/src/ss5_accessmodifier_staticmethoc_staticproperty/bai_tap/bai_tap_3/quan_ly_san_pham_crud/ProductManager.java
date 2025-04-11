@@ -17,6 +17,7 @@ public class ProductManager {
     }
 
     public void display() {
+        System.out.printf("|%-5s|%-25s|%-5s|\n","ID","Product Name","Price");
         for (int i = 0; i < productManagers.length; i++) {
             if (productManagers[i] != null) {
                 System.out.println(productManagers[i]);

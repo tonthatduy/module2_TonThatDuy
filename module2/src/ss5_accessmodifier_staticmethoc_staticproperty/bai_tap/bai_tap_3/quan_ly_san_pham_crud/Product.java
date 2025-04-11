@@ -41,10 +41,6 @@ public class Product {
     @Override
     public String toString() {
         DecimalFormat df = new DecimalFormat("#,###");
-        return "List{" +
-                "id= " + id +
-                ", name= '" + name + '\'' +
-                ", price= " + df.format(price) + " VNĐ" +
-                '}';
+        return String.format("%-5d %-25s %-15s", id, this.name, df.format(price));
     }
 }

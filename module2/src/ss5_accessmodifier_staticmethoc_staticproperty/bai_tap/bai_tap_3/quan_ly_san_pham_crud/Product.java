@@ -3,12 +3,13 @@ package ss5_accessmodifier_staticmethoc_staticproperty.bai_tap.bai_tap_3.quan_ly
 import java.text.DecimalFormat;
 
 public class Product {
+    private static int nextId = 1;
     private int id;
     private String name;
     private double price;
 
-    Product(int id, String name, double price) {
-        this.id = id;
+    Product(String name, double price) {
+        this.id = nextId++;
         this.name = name;
         this.price = price;
     }

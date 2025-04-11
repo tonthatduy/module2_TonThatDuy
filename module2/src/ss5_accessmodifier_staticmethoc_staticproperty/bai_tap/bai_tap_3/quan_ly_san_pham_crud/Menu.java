@@ -39,7 +39,7 @@ public class Menu {
                     productManager.create();
                 }
                 case 3 -> {
-                    System.out.println("--- Search Product ---");
+                    System.out.println("---Search Product---");
                     productManager.search();
                 }
                 case 4 -> {

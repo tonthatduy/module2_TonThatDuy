@@ -46,8 +46,8 @@ public class MovablePoint extends Point {
     }
 
     public MovablePoint move() {
-        setX(getX() + xSpeed);
-        setY(getY() + ySpeed);
+        super.setX(getX() + this.xSpeed);
+        super.setY(getY() + this.ySpeed);
         return this;
     }
 

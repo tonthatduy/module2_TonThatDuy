@@ -2,35 +2,36 @@ package ss7_interface_abstract_class.bai_tap.bai_tap_1.trien_khai_interface_resi
 
 import ss7_interface_abstract_class.bai_tap.bai_tap_2.trien_khai_interface_colorable_cho_cac_lop_hinh_hoc.Colorable;
 
-public class Square extends Rectangle implements Resizeable, Colorable {
+public class Square extends Shape implements Resizeable, Colorable {
+    private double side = 1.0f;
+
     public Square() {
     }
 
     public Square(double side) {
-        super(side, side);
+        this.side = side;
     }
 
     public Square(double side, String color, boolean filled) {
-        super(side, side, color, filled);
+        super(color, filled);
+        this.side = side;
+
     }
 
     public double getSide() {
-        return getWidth();
+        return side;
     }
 
     public void setSide(double side) {
-        super.setWidth(side);
-        super.setLength(side);
+        this.side = side;
     }
 
-    @Override
-    public void setWidth(double width) {
-        setSide(width);
+    public double getArea() {
+        return getSide() * getSide();
     }
 
-    @Override
-    public void setLength(double length) {
-        setSide(length);
+    public double getPerimeter() {
+        return 4 * getSide();
     }
 
     @Override
@@ -43,12 +44,11 @@ public class Square extends Rectangle implements Resizeable, Colorable {
 
     @Override
     public void resize(double percent) {
-        double newSide = getSide()*(1 + percent/100);
-        setSide(newSide);
+        setSide(side * (1 + percent / 100));
     }
 
     @Override
-    public void howToColor(String color) {
-        setColor(color);
+    public void howToColor() {
+        System.out.println("Color all four side");
     }
 }

@@ -12,7 +12,5 @@ public class SquareTest {
         System.out.println(square);
         square.resize(50);
         System.out.println(square);
-        square.howToColor("Orange");
-        System.out.println(square);;
     }
 }

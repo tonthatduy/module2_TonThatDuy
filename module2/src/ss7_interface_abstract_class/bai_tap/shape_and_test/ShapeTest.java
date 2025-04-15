@@ -1,4 +1,4 @@
-package ss7_interface_abstract_class.bai_tap.bai_tap_1.trien_khai_interface_resizeable_cho_cac_lop_hinh_hoc.shape;
+package ss7_interface_abstract_class.bai_tap.shape_and_test;
 
 public class ShapeTest {
     public static void main(String[] args) {

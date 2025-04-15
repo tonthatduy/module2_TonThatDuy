@@ -1,4 +1,7 @@
-package ss7_interface_abstract_class.bai_tap.bai_tap_1.trien_khai_interface_resizeable_cho_cac_lop_hinh_hoc.shape;
+package ss7_interface_abstract_class.bai_tap.rectangle_and_test;
+
+import ss7_interface_abstract_class.bai_tap.bai_tap_1.trien_khai_interface_resizeable_cho_cac_lop_hinh_hoc.shape.Resizeable;
+import ss7_interface_abstract_class.bai_tap.shape_and_test.Shape;
 
 public class Rectangle extends Shape implements Resizeable {
     private double width = 1.0;
@@ -49,9 +52,7 @@ public class Rectangle extends Shape implements Resizeable {
                 + " and length="
                 + getLength()
                 + ", which is a subclass of "
-                + super.toString()
-                + ", Perimeter = "
-                + getPerimeter();
+                + super.toString();
     }
 
     @Override

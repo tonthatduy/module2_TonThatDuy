@@ -7,7 +7,7 @@ import ss7_interface_abstract_class.bai_tap.shape_and_test.Shape;
 
 import java.util.Random;
 
-public class TestInterFaceResizeable {
+public class TestInterfaceResizeable {
     public static void main(String[] args) {
         Shape[] shapes = new Shape[3];
         shapes[0] = new Circle(7.0);

@@ -5,7 +5,7 @@ import ss7_interface_abstract_class.bai_tap.rectangle_and_test.Rectangle;
 import ss7_interface_abstract_class.bai_tap.shape_and_test.Shape;
 import ss7_interface_abstract_class.bai_tap.square_and_test.Square;
 
-public class TestInterFaceColorable {
+public class TestInterfaceColorable {
     public static void main(String[] args) {
         Shape[] shapes = new Shape[3];
         shapes[0] = new Circle(5.0);

@@ -1,5 +1,6 @@
 package ss5_access_modifier_static_method_static_property.bai_tap.bai_tap_3.quan_ly_san_pham_crud;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ProductManager {
@@ -8,7 +9,7 @@ public class ProductManager {
 
     Scanner scanner = new Scanner(System.in);
 
-    private static final Product[] productManagers = new Product[100];
+    private static final Product[] productManagers = new Product[3];
 
     static {
         productManagers[0] = new Product("Iphone 14", 15_000_000.0);
@@ -16,11 +17,30 @@ public class ProductManager {
         productManagers[2] = new Product("ViVo 5", 35_000_000.0);
     }
 
+
     public void display() {
-        System.out.printf("|%-5s|%-25s|%-5s|\n","ID","Product Name","Price");
+        int count = 0;
         for (int i = 0; i < productManagers.length; i++) {
             if (productManagers[i] != null) {
-                System.out.println(productManagers[i]);
+                count++;
+            } else {
+                break;
+            }
+        }
+        Product[] newProductManagers = new Product[count];
+        for (int i = 0; i < productManagers.length; i++) {
+            if (productManagers[i] != null) {
+                newProductManagers[i] = productManagers[i];
+            } else {
+                break;
+            }
+
+        }
+        Arrays.sort(newProductManagers);
+        System.out.printf("|%-5s|%-25s|%-5s|\n", "ID", "Product Name", "Price");
+        for (int i = 0; i < newProductManagers.length; i++) {
+            if (newProductManagers[i] != null) {
+                System.out.println(newProductManagers[i]);
             }
         }
 
@@ -202,5 +222,7 @@ public class ProductManager {
             }
         }
     }
+
+
 }
 

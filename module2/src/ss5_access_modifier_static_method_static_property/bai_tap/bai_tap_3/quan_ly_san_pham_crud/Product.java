@@ -2,7 +2,7 @@ package ss5_access_modifier_static_method_static_property.bai_tap.bai_tap_3.quan
 
 import java.text.DecimalFormat;
 
-public class Product {
+public class Product implements Comparable<Product> {
     private static int nextId = 1;
     private int id;
     private String name;
@@ -42,5 +42,10 @@ public class Product {
     public String toString() {
         DecimalFormat df = new DecimalFormat("#,###");
         return String.format("%-5d %-25s %-15s", id, this.name, df.format(price));
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return this.getName().compareTo(o.getName());
     }
 }

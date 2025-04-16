@@ -13,7 +13,7 @@ public class VehicleController {
 
         menuLoop:
         do {
-            System.out.println("--- CHƯƠNG TRÌNH QUẢN LÝ PHƯƠNG TIỆN GIAO THÔNG ---");
+            System.out.println("--- VEHICLE MANAGEMENT PROGRAM ---");
             System.out.println("Enter your Management :");
             System.out.println("1. Create Vehicle.");
             System.out.println("2. Display Vehicle.");

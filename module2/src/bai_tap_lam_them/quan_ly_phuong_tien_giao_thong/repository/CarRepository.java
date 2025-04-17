@@ -3,8 +3,7 @@ package bai_tap_lam_them.quan_ly_phuong_tien_giao_thong.repository;
 import bai_tap_lam_them.quan_ly_phuong_tien_giao_thong.entity.Car;
 
 public class CarRepository implements ICarRepository, IVehicleRepository {
-    private static Car[] cars = new Car[50];
-//    private static int carCount= 0;
+    private static Car[] cars = new Car[10];
 
     static {
         cars[0] = new Car("43A-212.56", "Toyota", 2019, "Du lịch", "Nguyễn Văn C", 5);

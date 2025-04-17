@@ -34,12 +34,12 @@ public class VehicleController {
             }
             switch (choice) {
                 case 1 -> {
-                    Create.menuCreateVehicle();
+                    MenuCreateCotroller.menuCreateVehicle();
                     System.out.println("---Create Vehicle ---");
                 }
 
                 case 2 -> {
-                    Display.menuDisplayVehicle();
+                    MenuDisplayController.menuDisplayVehicle();
                     System.out.println("---Display Vehicle---");
                 }
 

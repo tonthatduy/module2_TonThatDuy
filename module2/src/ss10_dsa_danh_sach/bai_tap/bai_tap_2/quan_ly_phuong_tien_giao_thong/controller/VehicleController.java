@@ -137,13 +137,13 @@ public class VehicleController {
         String controlPlate = Main.enterControlPlate();
         Vehicle vehicle = vehicleService.findByControlPlate(controlPlate);
         if (vehicle == null) {
-            System.out.println("Không có");
+            System.out.println("No license plate    ");
         } else {
             if (Main.comFirm()) {
                 vehicleService.delete(vehicle);
-                System.out.println("Đã xóa thành công");
+                System.out.println("Deleted successfully");
             } else {
-                System.out.println("Đã hủy");
+                System.out.println("Cancelled");
             }
         }
     }

@@ -17,7 +17,7 @@ public class Main {
         String string;
         do {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Nhập Y để xóa N để Hủy");
+            System.out.println("Enter Y to delete N to Cancel");
             string = scanner.nextLine();
         } while (!string.equalsIgnoreCase("Y") && !string.equalsIgnoreCase("N"));
         if (string.equalsIgnoreCase("Y")){

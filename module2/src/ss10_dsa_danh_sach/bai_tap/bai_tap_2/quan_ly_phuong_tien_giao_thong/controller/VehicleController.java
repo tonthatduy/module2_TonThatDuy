@@ -25,7 +25,6 @@ public class VehicleController {
 
     public static void displayMenu() {
 
-
         menuLoop:
         do {
             System.out.println("--- VEHICLE MANAGEMENT PROGRAM ---");

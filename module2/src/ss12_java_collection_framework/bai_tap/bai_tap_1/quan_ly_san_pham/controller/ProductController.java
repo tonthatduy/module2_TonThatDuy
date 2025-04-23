@@ -1,6 +1,7 @@
 package ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.controller;
 
 import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.common.AscendingSortByPrice;
+import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.common.ReduceSortByPrice;
 import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.entity.Product;
 import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.service.ProductService;
 import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.view.ProductView;
@@ -55,11 +56,7 @@ public class ProductController {
                 }
                 case 6 -> {
                     System.out.println("---Sắp Xếp Sản Phẩm---");
-                    ArrayList<Product> products = productService.findAll();
-                    products.sort(new AscendingSortByPrice());
-                    //cách 2
-//                    products.sort(((o1, o2) -> (int) (o1.getGiaSanPham() - o2.getGiaSanPham())));
-                    ProductView.displayProduct(productService.findAll());
+                    sort();
                 }
                 case 7 -> {
                     System.out.println("-----Thank!-----");
@@ -110,6 +107,31 @@ public class ProductController {
             productService.update(ProductView.inputUpdateProDuct(product));
             System.out.println("--- Sửa Thành Công---");
         }
+
+    }
+
+    public static void sort() {
+        int choice;
+        do {
+            System.out.println("1. Sắp Xếp Tăng dần");
+            System.out.println("2. Sắp Xếp Giảm dần");
+            System.out.println("3. Quay lại Trang Chủ");
+            choice = readInt("Chọn trong khoảng 1-3:", 1, 3);
+            if (choice == 1) {
+                ArrayList<Product> products = productService.findAll();
+//                products.sort(((o1, o2) -> (int) (o1.getGiaSanPham() - o2.getGiaSanPham())));
+                products.sort(new AscendingSortByPrice());
+                ProductView.displayProduct(productService.findAll());
+
+            } else if (choice == 2) {
+                ArrayList<Product> products = productService.findAll();
+                products.sort(new ReduceSortByPrice());
+                ProductView.displayProduct(productService.findAll());
+
+            } else {
+                return;
+            }
+        } while (true);
 
     }
 }

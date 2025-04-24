@@ -14,6 +14,7 @@ import ss10_dsa_danh_sach.bai_tap.bai_tap_2.quan_ly_phuong_tien_giao_thong.view.
 import ss10_dsa_danh_sach.bai_tap.bai_tap_2.quan_ly_phuong_tien_giao_thong.view.TruckView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class VehicleController {
@@ -82,15 +83,15 @@ public class VehicleController {
             option = Integer.parseInt(scanner.nextLine());
             switch (option) {
                 case 1 -> {
-                    ArrayList<Truck> trucks = truckService.findAll();
+                    List<Truck> trucks = truckService.findAll();
                     TruckView.displayTruck(trucks);
                 }
                 case 2 -> {
-                    ArrayList<Car> cars = carService.findAll();
+                    List<Car> cars = carService.findAll();
                     CarView.displayCar(cars);
                 }
                 case 3 -> {
-                    ArrayList<MotorBike> motorBikes = motorBikeService.findAll();
+                    List<MotorBike> motorBikes = motorBikeService.findAll();
                     MotorBikeView.displayMotorBike(motorBikes);
                 }
                 case 4 -> {

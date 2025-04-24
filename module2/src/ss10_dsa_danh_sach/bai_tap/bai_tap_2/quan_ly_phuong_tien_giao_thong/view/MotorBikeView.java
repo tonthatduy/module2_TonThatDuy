@@ -3,11 +3,12 @@ package ss10_dsa_danh_sach.bai_tap.bai_tap_2.quan_ly_phuong_tien_giao_thong.view
 import ss10_dsa_danh_sach.bai_tap.bai_tap_2.quan_ly_phuong_tien_giao_thong.entity.MotorBike;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MotorBikeView {
     private static Scanner scanner = new Scanner(System.in);
-    public static void displayMotorBike(ArrayList<MotorBike> motorBikes) {
+    public static void displayMotorBike(List<MotorBike> motorBikes) {
         for (int i = 0; i < motorBikes.size(); i++) {
             System.out.println(motorBikes.get(i));
 

@@ -5,11 +5,12 @@ import ss10_dsa_danh_sach.bai_tap.bai_tap_2.quan_ly_phuong_tien_giao_thong.repos
 import ss10_dsa_danh_sach.bai_tap.bai_tap_2.quan_ly_phuong_tien_giao_thong.repository.TruckRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TruckService implements ITruckService{
     private ITruckRepository truckRepository = new TruckRepository();
     @Override
-    public ArrayList<Truck> findAll() {
+    public List<Truck> findAll() {
         return truckRepository.findAll();
     }
 

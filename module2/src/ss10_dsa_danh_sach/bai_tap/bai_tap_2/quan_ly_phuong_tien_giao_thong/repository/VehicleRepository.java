@@ -8,10 +8,10 @@ import ss10_dsa_danh_sach.bai_tap.bai_tap_2.quan_ly_phuong_tien_giao_thong.entit
 import java.util.ArrayList;
 
 public class VehicleRepository implements IVehicleRepository {
-    private static final ArrayList<Vehicle> vehicles = new ArrayList<>();
-    private static final ICarRepository carRepository = new CarRepository();
-    private static final ITruckRepository truckRepository = new TruckRepository();
-    private static final IMotorBikeRepository motorBikeRepository = new MotorBikeRepository();
+    private static  ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private static  ICarRepository carRepository = new CarRepository();
+    private static  ITruckRepository truckRepository = new TruckRepository();
+    private static  IMotorBikeRepository motorBikeRepository = new MotorBikeRepository();
 
     @Override
     public ArrayList<Vehicle> findAll() {
@@ -28,7 +28,6 @@ public class VehicleRepository implements IVehicleRepository {
             if (vehicles1.get(i).getControlPlate().equalsIgnoreCase(controlPlate)) {
                 return vehicles1.get(i);
             }
-
         }
         return null;
     }
@@ -43,4 +42,5 @@ public class VehicleRepository implements IVehicleRepository {
             motorBikeRepository.delete((MotorBike)vehicle);
         }
     }
+
 }

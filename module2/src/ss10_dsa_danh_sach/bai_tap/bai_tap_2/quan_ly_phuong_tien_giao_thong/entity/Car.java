@@ -42,4 +42,9 @@ public class Car extends Vehicle {
                 ", type='" + type + '\'' +
                 ']';
     }
+
+    public String getInfoFileCar() {
+        return super.getInfoVehicle() + ","
+                + this.seatQuantity + "," + this.type;
+    }
 }

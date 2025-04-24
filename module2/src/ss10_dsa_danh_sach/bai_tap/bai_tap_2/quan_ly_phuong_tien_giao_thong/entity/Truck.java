@@ -1,6 +1,6 @@
 package ss10_dsa_danh_sach.bai_tap.bai_tap_2.quan_ly_phuong_tien_giao_thong.entity;
 
-public class Truck extends Vehicle{
+public class Truck extends Vehicle {
     private int payLoad;
 
     public Truck() {
@@ -29,5 +29,9 @@ public class Truck extends Vehicle{
                 super.toString() +
                 "payLoad=" + payLoad +
                 ']';
+    }
+
+    public String getInfoFileTruck() {
+        return super.getInfoVehicle() + "," + this.payLoad;
     }
 }

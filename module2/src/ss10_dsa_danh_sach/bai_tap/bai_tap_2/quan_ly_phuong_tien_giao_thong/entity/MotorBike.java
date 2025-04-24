@@ -1,6 +1,6 @@
 package ss10_dsa_danh_sach.bai_tap.bai_tap_2.quan_ly_phuong_tien_giao_thong.entity;
 
-public class MotorBike extends Vehicle{
+public class MotorBike extends Vehicle {
     private int Capacity;
 
     public MotorBike(int capacity) {
@@ -26,9 +26,13 @@ public class MotorBike extends Vehicle{
     @Override
     public String toString() {
         return "MotorBike[" +
-                super.toString()+
+                super.toString() +
                 " Capacity=" + Capacity +
                 ']';
+    }
+
+    public String getInfoFileMotorBike() {
+        return super.getInfoVehicle() + "," + this.Capacity;
     }
 
 }

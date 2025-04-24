@@ -3,12 +3,13 @@ package ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.view;
 import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.entity.Product;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProductView {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void displayProduct(ArrayList<Product> products) {
+    public static void displayProduct(List<Product> products) {
         for (int i = 0; i < products.size(); i++) {
             System.out.println(products.get(i));
         }

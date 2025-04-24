@@ -1,5 +1,7 @@
 package ss10_dsa_danh_sach.bai_tap.bai_tap_2.quan_ly_phuong_tien_giao_thong.entity;
 
+import java.util.Objects;
+
 public abstract class Vehicle {
     private String controlPlate;
     private String manufactureName;
@@ -56,5 +58,24 @@ public abstract class Vehicle {
                 ", yearOfManufacture=" + yearOfManufacture +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public String getInfoVehicle() {
+        return this.controlPlate + ","
+                + this.manufactureName + ","
+                + this.yearOfManufacture + ","
+                + this.name;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+        Vehicle vehicle = (Vehicle) object;
+        return yearOfManufacture == vehicle.yearOfManufacture && Objects.equals(controlPlate, vehicle.controlPlate) && Objects.equals(manufactureName, vehicle.manufactureName) && Objects.equals(name, vehicle.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(controlPlate, manufactureName, yearOfManufacture, name);
     }
 }

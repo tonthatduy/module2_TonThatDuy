@@ -7,6 +7,7 @@ import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.service
 import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.view.ProductView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProductController {
@@ -26,7 +27,7 @@ public class ProductController {
             System.out.println("5. Tìm Kiếm Sản Phảm ");
             System.out.println("6. Sắp Xếp Sản Phẩm ");
             System.out.println("7 Thoát!");
-            choice = readInt("Chọn trong khoảng 1 -7: ", 1, 7);
+            choice = readInt("Chọn trong khoảng 1-7", 1, 7);
             switch (choice) {
                 case 1 -> {
                     System.out.println("---Thêm Sản Phẩm---");
@@ -80,7 +81,7 @@ public class ProductController {
             try {
                 int num = Integer.parseInt(string);
                 if (num < min || num > max) {
-                    System.out.println("Nhập lại trong khoảng 1-7: ");
+                    System.out.println("Nhập lại trong khoảng: " + min + "-" + max);
                 } else
                     return num;
             } catch (NumberFormatException e) {
@@ -111,23 +112,23 @@ public class ProductController {
     }
 
     public static void sort() {
-        int choice;
+        int option;
         do {
             System.out.println("1. Sắp Xếp Tăng dần");
             System.out.println("2. Sắp Xếp Giảm dần");
             System.out.println("3. Quay lại Trang Chủ");
-            choice = readInt("Chọn trong khoảng 1-3:", 1, 3);
-            if (choice == 1) {
-                ArrayList<Product> products = productService.findAll();
+            option = readInt("Chọn trong khoảng 1-3:", 1, 3);
+            if (option == 1) {
+
 //                products.sort(((o1, o2) -> (int) (o1.getGiaSanPham() - o2.getGiaSanPham())));
-                products.sort(new AscendingSortByPrice());
-                ProductView.displayProduct(productService.findAll());
+                List<Product> sortedList = productService.findAll();
+                sortedList.sort(new AscendingSortByPrice());
+                ProductView.displayProduct(sortedList);
 
-            } else if (choice == 2) {
-                ArrayList<Product> products = productService.findAll();
-                products.sort(new ReduceSortByPrice());
-                ProductView.displayProduct(productService.findAll());
-
+            } else if (option == 2) {
+                List<Product> sortedList = productService.findAll();
+                sortedList.sort(new ReduceSortByPrice());
+                ProductView.displayProduct(sortedList);
             } else {
                 return;
             }

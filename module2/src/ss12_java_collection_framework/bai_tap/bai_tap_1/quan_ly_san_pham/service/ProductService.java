@@ -5,12 +5,13 @@ import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.reposit
 import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.repository.ProductRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductService implements IProductService {
     private IProductRepository productRepository = new ProductRepository();
 
     @Override
-    public ArrayList<Product> findAll() {
+    public List<Product> findAll() {
         return productRepository.findAll();
     }
 

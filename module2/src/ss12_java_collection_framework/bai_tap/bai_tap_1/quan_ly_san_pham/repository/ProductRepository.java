@@ -14,7 +14,7 @@ public class ProductRepository implements IProductRepository {
     public List<Product> findAll() {
         // đọc file/ kết nối db => danh sách sản phẩm
         // Phương thức ghi file character
-        List<Product> products = new ArrayList<>();
+//        List<Product> products = new ArrayList<>();
 //        List<String> stringList = ReadAndWriteFile.readFile(PRODUCT_FILE);
 //        String[] array;
 //        for (int i = 0; i < stringList.size(); i++) {
@@ -25,7 +25,7 @@ public class ProductRepository implements IProductRepository {
 
         // Đọc file nhị phân
 
-        products = ReadAndWriteFile.readFileListProductToBinaryFile(PRODUCT_DAT_FILE);
+       List<Product> products = ReadAndWriteFile.readFileListProductToBinaryFile(PRODUCT_DAT_FILE);
         return products;
     }
 

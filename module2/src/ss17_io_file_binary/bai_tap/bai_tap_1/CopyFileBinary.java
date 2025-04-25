@@ -1,7 +1,6 @@
-package ss17_io_file_binary.bai_tap.copy_file_binary;
+package ss17_io_file_binary.bai_tap.bai_tap_1;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;

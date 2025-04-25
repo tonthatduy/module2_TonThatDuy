@@ -2,10 +2,11 @@ package ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.entity
 
 import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.common.UpdateID;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.Objects;
 
-public class Product {
+public class Product implements Serializable {
     private static int idNext = 0;
     private int id;
     private String tenSanPham;

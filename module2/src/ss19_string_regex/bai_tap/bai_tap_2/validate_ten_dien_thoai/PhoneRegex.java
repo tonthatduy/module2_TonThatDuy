@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PhoneRegex {
-    private static final String PHONE_REGEX = "\\([0-9]{2}\\)-\\(0[0-9]{9}\\)";
+    private static final String PHONE_REGEX = "\\(\\d{2}\\)-\\(0\\d{9}\\)";
 
     public PhoneRegex() {
     }

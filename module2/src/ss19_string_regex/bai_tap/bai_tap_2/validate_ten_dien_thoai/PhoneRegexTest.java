@@ -13,7 +13,7 @@ public class PhoneRegexTest {
                 System.out.println("Số điện thoại đúng định dạng");
                 break;
             } else {
-                System.out.println("Số điện thoại sai định dạng");
+                System.err.println("Số điện thoại sai định dạng");
             }
         }
     }

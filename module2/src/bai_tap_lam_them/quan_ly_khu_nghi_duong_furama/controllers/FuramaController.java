@@ -15,19 +15,8 @@ public class FuramaController {
             System.out.println("4.Booking Management ");
             System.out.println("5.Promotion Management ");
             System.out.println("6.Exit");
-            System.out.println("Enter Your Choice");
-            String input = scanner.nextLine();
-            if (input.isEmpty()) {
-                System.out.println("You have not entered anything.Please re-enter");
-                continue;
-            }
-            int choice;
-            try {
-                choice = Integer.parseInt(input);
-            } catch (Exception ex) {
-                System.out.println("You must enter an integer.Please Re-renter!");
-                continue;
-            }
+            int choice = readInt("Chọn trong khoảng 1-6", 1, 6);
+
             switch (choice) {
                 case 1 -> {
                     FuramaController.menuEmployee();
@@ -56,15 +45,14 @@ public class FuramaController {
     }
 
     public static void menuEmployee() {
-        int option;
         do {
             System.out.println("---Employee Management---");
             System.out.println("1. Display list employees");
             System.out.println("2. Add new employee");
             System.out.println("3. Edit employee");
             System.out.println("4. Return main menu");
-            System.out.println("Enter Your Choice");
-            option = Integer.parseInt(scanner.nextLine());
+            int option = readInt("Chọn trong khoảng 1-4", 1, 4);
+
             switch (option) {
                 case 1 -> {
                 }
@@ -81,15 +69,14 @@ public class FuramaController {
     }
 
     public static void menuCustomer() {
-        int option;
         do {
             System.out.println("---Customer Management---");
             System.out.println("1.Display list customers");
             System.out.println("2.Add new customer");
             System.out.println("3.Edit customer");
             System.out.println("4.Return main menu");
-            System.out.println("Choice Option: ");
-            option = Integer.parseInt(scanner.nextLine());
+            int option = readInt("Chọn trong khoảng 1-4", 1, 4);
+
             switch (option) {
                 case 1 -> {
                 }
@@ -106,15 +93,13 @@ public class FuramaController {
     }
 
     public static void menuFacility() {
-        int option;
         do {
             System.out.println("---Facility Management---");
             System.out.println("1.Display list facility");
             System.out.println("2. Add new facility");
             System.out.println("3. Display list facility maintenance");
             System.out.println("4.Return main menu");
-            System.out.println("Choice Option");
-            option = Integer.parseInt(scanner.nextLine());
+            int option = readInt("Chọn trong khoảng 1-4", 1, 4);
             switch (option) {
                 case 1 -> {
                 }
@@ -131,7 +116,6 @@ public class FuramaController {
     }
 
     public static void menuBooking() {
-        int option;
         do {
             System.out.println("---Booking Management---");
             System.out.println("1.Add new booking");
@@ -140,57 +124,63 @@ public class FuramaController {
             System.out.println("4.Display list contracts");
             System.out.println("5.Edit contracts");
             System.out.println("6.Return main menu");
-            System.out.println("Choice Option: ");
-            option= Integer.parseInt(scanner.nextLine());
-            switch (option){
-                case 1->{}
-                case 2->{}
-                case 3->{}
-                case 4->{}
-                case 5->{}
-                case 6->{
+            int option = readInt("Chọn trong khoảng 1-6", 1, 6);
+            switch (option) {
+                case 1 -> {
+                }
+                case 2 -> {
+                }
+                case 3 -> {
+                }
+                case 4 -> {
+                }
+                case 5 -> {
+                }
+                case 6 -> {
                     System.out.println("Return to Main Menu");
                     return;
                 }
             }
-        }while (true);
+        } while (true);
     }
-    public static void menuPromotion(){
-        int option;
+
+    public static void menuPromotion() {
         do {
             System.out.println("---Promotion Management---");
             System.out.println("1.Display list customers use service");
             System.out.println("2.Display list customers get voucher");
             System.out.println("3.Return main menu");
-            System.out.println("Chọn trong khoảng (1-3): ");
-            option = readInt("Chọn trong khoảng (1-3",1,3);
-            switch (option){
-                case 1->{}
-                case 2->{}
-                case 3->{
+            int option = readInt("Chọn trong khoảng (1-3", 1, 3);
+            switch (option) {
+                case 1 -> {
+                }
+                case 2 -> {
+                }
+                case 3 -> {
                     System.out.println("Return to Main Menu");
                     return;
                 }
             }
-        }while (true);
+        } while (true);
     }
-    public static int readInt(String prompt, int min, int max){
-        while (true){
+
+    public static int readInt(String prompt, int min, int max) {
+        while (true) {
             System.out.println(prompt);
             String input = scanner.nextLine();
-            if (input.trim().isEmpty()){
+            if (input.trim().isEmpty()) {
                 System.out.println("Không được để trống");
                 continue;
             }
             try {
                 int num = Integer.parseInt(input);
-                if (num<min || num > max){
-                    System.out.println("Nhập lại trong khoảng " + min + "và" + max + ".");
+                if (num < min || num > max) {
+                    System.out.println("Nhập lại trong khoảng " + min + " và " + max + ".");
                 } else {
                     return num;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Nhập lại");
+                System.err.println("Nhập lại số");
             }
         }
 

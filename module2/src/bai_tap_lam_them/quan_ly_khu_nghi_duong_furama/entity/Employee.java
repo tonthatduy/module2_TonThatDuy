@@ -8,13 +8,8 @@ public class Employee extends Person {
     public Employee() {
     }
 
-    public Employee(String id, String ten, String ngaySinh,
-                    String gioiTinh, int soChungMinhNhanDan, String soDienThoai, String eMail) {
-        super(id, ten, ngaySinh, gioiTinh, soChungMinhNhanDan, soDienThoai, eMail);
-    }
-
     public Employee(String id, String ten, String ngaySinh, String gioiTinh,
-                    int soChungMinhNhanDan, String soDienThoai, String eMail, String trinhDo, String viTri, long luong) {
+                    String soChungMinhNhanDan, String soDienThoai, String eMail, String trinhDo, String viTri, long luong) {
         super(id, ten, ngaySinh, gioiTinh, soChungMinhNhanDan, soDienThoai, eMail);
         this.trinhDo = trinhDo;
         this.viTri = viTri;
@@ -53,5 +48,10 @@ public class Employee extends Person {
                 ", viTri='" + viTri + '\'' +
                 ", luong=" + luong +
                 '}';
+    }
+
+    public String getInfoToFileEmployee() {
+        return super.getInfoToFilePerson() + "," + this.trinhDo + "," +
+                this.viTri + "," + this.luong;
     }
 }

@@ -5,7 +5,7 @@ public abstract class Person {
     private String ten;
     private String ngaySinh;
     private String gioiTinh;
-    private int soChungMinhNhanDan;
+    private String soChungMinhNhanDan;
     private String soDienThoai;
     private String eMail;
 
@@ -13,7 +13,7 @@ public abstract class Person {
     }
 
     public Person(String id, String ten, String ngaySinh,
-                  String gioiTinh, int soChungMinhNhanDan, String soDienThoai, String eMail) {
+                  String gioiTinh, String soChungMinhNhanDan, String soDienThoai, String eMail) {
         this.id = id;
         this.ten = ten;
         this.ngaySinh = ngaySinh;
@@ -55,11 +55,11 @@ public abstract class Person {
         this.gioiTinh = gioiTinh;
     }
 
-    public int getSoChungMinhNhanDan() {
+    public String getSoChungMinhNhanDan() {
         return soChungMinhNhanDan;
     }
 
-    public void setSoChungMinhNhanDan(int soChungMinhNhanDan) {
+    public void setSoChungMinhNhanDan(String soChungMinhNhanDan) {
         this.soChungMinhNhanDan = soChungMinhNhanDan;
     }
 
@@ -90,5 +90,12 @@ public abstract class Person {
                 ", soDienThoai='" + soDienThoai + '\'' +
                 ", eMail='" + eMail + '\'' +
                 '}';
+    }
+
+    protected String getInfoToFilePerson() {
+        return this.id + "," + this.ten + ","
+                + this.ngaySinh + "," + this.gioiTinh + ","
+                + this.soChungMinhNhanDan + "," + this.soDienThoai +
+                "," + this.eMail;
     }
 }

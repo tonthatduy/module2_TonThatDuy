@@ -1,9 +1,14 @@
 package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.controllers;
 
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service.EmployeeService;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.view.EmployeeView;
+import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.entity.Product;
+
 import java.util.Scanner;
 
 public class FuramaController {
     private static Scanner scanner = new Scanner(System.in);
+    private static EmployeeService employeeService = new EmployeeService();
 
     public static void displayMainMenu() {
         menuLoop:
@@ -55,8 +60,12 @@ public class FuramaController {
 
             switch (option) {
                 case 1 -> {
+                    System.out.println("-----Hiển thị Employees-----");
+                    EmployeeView.displayEmployee(employeeService.findAll());
                 }
                 case 2 -> {
+                    System.out.println("-----Thêm Nhân Viên-----");
+                    employeeService.add(EmployeeView.inputDataForEmployee());
                 }
                 case 3 -> {
                 }

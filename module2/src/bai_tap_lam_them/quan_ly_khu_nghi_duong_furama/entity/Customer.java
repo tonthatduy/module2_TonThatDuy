@@ -8,12 +8,12 @@ public class Customer extends Person {
     }
 
     public Customer(String id, String ten, String ngaySinh,
-                    String gioiTinh, int soChungMinhNhanDan, String soDienThoai, String eMail) {
+                    String gioiTinh, String soChungMinhNhanDan, String soDienThoai, String eMail) {
         super(id, ten, ngaySinh, gioiTinh, soChungMinhNhanDan, soDienThoai, eMail);
     }
 
     public Customer(String id, String ten, String ngaySinh, String gioiTinh,
-                    int soChungMinhNhanDan, String soDienThoai, String eMail, String loaiKhach, String diaChi) {
+                    String soChungMinhNhanDan, String soDienThoai, String eMail, String loaiKhach, String diaChi) {
         super(id, ten, ngaySinh, gioiTinh, soChungMinhNhanDan, soDienThoai, eMail);
         this.loaiKhach = loaiKhach;
         this.diaChi = diaChi;

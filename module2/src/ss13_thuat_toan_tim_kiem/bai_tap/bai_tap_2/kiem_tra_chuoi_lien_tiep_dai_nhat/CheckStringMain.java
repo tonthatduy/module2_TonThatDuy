@@ -1,4 +1,4 @@
-package ss13_thuat_toan_tim_kiem.bai_tap.bai_tap_2.bai_tap;
+package ss13_thuat_toan_tim_kiem.bai_tap.bai_tap_2.kiem_tra_chuoi_lien_tiep_dai_nhat;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class CheckStringMain {
             int j = i;
             while (j + 1 <= string.length() - 1) {
                 if (string.charAt(j) < string.charAt(j + 1)) {
-                    if (temp.length() == 0) {
+                    if (temp.isEmpty()) {
                         temp.append(string.charAt(j));
                     }
                     temp.append(string.charAt(j + 1));

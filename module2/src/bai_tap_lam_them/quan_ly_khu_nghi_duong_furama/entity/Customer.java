@@ -43,4 +43,8 @@ public class Customer extends Person {
                 ", diaChi='" + diaChi + '\'' +
                 '}';
     }
+
+    public String getInfoToFileCustomer() {
+        return super.getInfoToFilePerson() + "," + this.loaiKhach + "," + this.diaChi;
+    }
 }

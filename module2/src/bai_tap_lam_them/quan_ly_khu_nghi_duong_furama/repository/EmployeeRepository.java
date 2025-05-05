@@ -27,7 +27,36 @@ public class EmployeeRepository implements IEmployeeRepository {
     public void add(Employee employee) {
         List<String> stringList = new ArrayList<>();
         stringList.add(employee.getInfoToFileEmployee());
-        ReadAndWriteFileFurama.writeFile(EMPLOYEE_FILE,stringList,true);
+        ReadAndWriteFileFurama.writeFile(EMPLOYEE_FILE, stringList, true);
     }
 
+    @Override
+    public Employee findByIDEmployee(String idEmployee) {
+        List<Employee> employees = findAll();
+        for (Employee employee : employees) {
+            if (employee.getId().equalsIgnoreCase(idEmployee)) {
+                return employee;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void editEmployee(Employee employee) {
+        List<Employee> employees = findAll();
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getId().equalsIgnoreCase(employee.getId())) {
+                employees.set(i, employee);
+                break;
+            }
+        }
+        List<String> stringList = new ArrayList<>();
+        for (Employee employee1 : employees) {
+            stringList.add(employee1.getInfoToFileEmployee());
+        }
+        ReadAndWriteFileFurama.writeFile(EMPLOYEE_FILE, stringList, false);
+    }
 }
+
+
+

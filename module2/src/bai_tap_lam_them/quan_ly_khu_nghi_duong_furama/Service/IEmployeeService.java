@@ -8,4 +8,8 @@ public interface IEmployeeService {
     List<Employee> findAll();
 
     void add(Employee employee);
+
+    Employee findByIDEmployee(String idEmployee);
+
+    void editEployee(Employee employee);
 }

@@ -9,4 +9,8 @@ public interface IEmployeeRepository {
     List<Employee> findAll();
 
     void add(Employee employee);
+
+    Employee findByIDEmployee(String idEmployee);
+
+    void editEmployee(Employee employee);
 }

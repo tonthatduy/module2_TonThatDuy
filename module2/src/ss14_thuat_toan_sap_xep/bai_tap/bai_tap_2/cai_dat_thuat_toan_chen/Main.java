@@ -14,13 +14,16 @@ public class Main {
             list[i] = Integer.parseInt(scanner.nextLine());
         }
         System.out.println("Mảng bang đầu nhập vào " + Arrays.toString(list));
+        System.out.println("-------------------------------------------------");
         insertionSort(list);
+        System.out.println("--------------------------------------------------");
         System.out.println("Mảng sau khi sắp xếp chèn " + Arrays.toString(list));
 
     }
 
     public static void insertionSort(int[] arr) {
-        int pos, x;
+        int x;
+        int pos;
         for (int i = 0; i < arr.length; i++) {
             x = arr[i];
             pos = i;

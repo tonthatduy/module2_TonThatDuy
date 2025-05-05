@@ -36,9 +36,6 @@ public class Main {
             }
             arr[pos] = x;
             System.out.println("Mảng sau khi dịch chuyển lần thứ " + i + ": " + Arrays.toString(arr));
-//            for (int j = 0; j < arr.length; j++) {
-//                System.out.print(arr[j] + "\t");
-//            }
             System.out.println();
         }
     }

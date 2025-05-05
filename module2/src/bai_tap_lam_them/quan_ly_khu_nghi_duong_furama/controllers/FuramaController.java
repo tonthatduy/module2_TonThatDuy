@@ -1,14 +1,18 @@
 package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.controllers;
 
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service.CustomerService;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service.EmployeeService;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.Customer;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.Employee;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.view.CustomerView;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.view.EmployeeView;
-import ss12_java_collection_framework.bai_tap.bai_tap_1.quan_ly_san_pham.entity.Product;
 
 import java.util.Scanner;
 
 public class FuramaController {
     private static Scanner scanner = new Scanner(System.in);
     private static EmployeeService employeeService = new EmployeeService();
+    private static CustomerService customerService = new CustomerService();
 
     public static void displayMainMenu() {
         menuLoop:
@@ -24,19 +28,19 @@ public class FuramaController {
 
             switch (choice) {
                 case 1 -> {
-                    FuramaController.menuEmployee();
+                    menuEmployee();
                 }
                 case 2 -> {
-                    FuramaController.menuCustomer();
+                    menuCustomer();
                 }
                 case 3 -> {
-                    FuramaController.menuFacility();
+                    menuFacility();
                 }
                 case 4 -> {
-                    FuramaController.menuBooking();
+                    menuBooking();
                 }
                 case 5 -> {
-                    FuramaController.menuPromotion();
+                    menuPromotion();
                 }
                 case 6 -> {
                     System.out.println("----Thanks----");
@@ -68,6 +72,10 @@ public class FuramaController {
                     employeeService.add(EmployeeView.inputDataForEmployee());
                 }
                 case 3 -> {
+                    System.out.println("-----Sửa Thông Tin Nhân Viên----");
+                    EmployeeView.displayEmployee(employeeService.findAll());
+                    editEmployee();
+                    EmployeeView.displayEmployee(employeeService.findAll());
                 }
                 case 4 -> {
                     System.out.println("Return to Main Menu");
@@ -88,10 +96,20 @@ public class FuramaController {
 
             switch (option) {
                 case 1 -> {
+                    System.out.println("-----Hiển thị Khách Hàng-----");
+                    CustomerView.displayCustomer(customerService.findAll());
                 }
                 case 2 -> {
+                    System.out.println("-----Thêm Khách Hàng-----");
+                    customerService.add(CustomerView.inputDataForCustomer());
                 }
                 case 3 -> {
+                    System.out.println("-----Sửa Thông Tin Khách Hàng----");
+                    CustomerView.displayCustomer(customerService.findAll());
+                    editCustomer();
+                    CustomerView.displayCustomer(customerService.findAll());
+
+
                 }
                 case 4 -> {
                     System.out.println("Return to Main Menu");
@@ -100,6 +118,8 @@ public class FuramaController {
             }
         } while (true);
     }
+
+
 
     public static void menuFacility() {
         do {
@@ -193,6 +213,25 @@ public class FuramaController {
             }
         }
 
+    }
+
+    public static void editEmployee() {
+        Employee employee = employeeService.findByIDEmployee(EmployeeView.findIDEmployee());
+        if (employee == null) {
+            System.out.println("Không có trong danh sách");
+        } else {
+            employeeService.editEployee(EmployeeView.inputEditEmployee(employee));
+            System.out.println("---Sửa thành công---");
+        }
+    }
+    private static void editCustomer() {
+        Customer customer = customerService.findByIDCustomer(CustomerView.findIDCustomer());
+        if (customer==null){
+            System.out.println("Không có trong danh sách");
+        } else {
+            customerService.editCustomer(CustomerView.inputEditCustomer(customer));
+            System.out.println("-----Sửa thành công-----");
+        }
     }
 
 }

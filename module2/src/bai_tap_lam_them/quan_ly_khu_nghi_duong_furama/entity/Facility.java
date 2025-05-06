@@ -1,7 +1,7 @@
 package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity;
 
 public abstract class Facility {
-    private  int maDichVu;
+    private  String maDichVu;
     private  String nameDichVu;
     private  double dienTichSuDung;
     private  int soLuongNguoiToiDa;
@@ -10,7 +10,7 @@ public abstract class Facility {
     public Facility() {
     }
 
-    public Facility(int maDichVu, String nameDichVu, double dienTichSuDung, int soLuongNguoiToiDa, String kieuThue) {
+    public Facility(String maDichVu, String nameDichVu, double dienTichSuDung, int soLuongNguoiToiDa, String kieuThue) {
         this.maDichVu = maDichVu;
         this.nameDichVu = nameDichVu;
         this.dienTichSuDung = dienTichSuDung;
@@ -18,11 +18,11 @@ public abstract class Facility {
         this.kieuThue = kieuThue;
     }
 
-    public int getMaDichVu() {
+    public String getMaDichVu() {
         return maDichVu;
     }
 
-    public void setMaDichVu(int maDichVu) {
+    public void setMaDichVu(String maDichVu) {
         this.maDichVu = maDichVu;
     }
 

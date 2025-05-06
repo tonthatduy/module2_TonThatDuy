@@ -1,7 +1,9 @@
 package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.view;
 
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.common.SelectionList;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.common.Validate;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.Customer;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.util.InputUtil;
 
 import java.util.List;
 import java.util.Scanner;
@@ -35,8 +37,7 @@ public class CustomerView {
         System.out.println("Nhập email nhân viên");
         String emailNhanVien = Validate.validateInput("^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$",
                 "Nhập sai, Nhập lại");
-        System.out.println("Nhập loại khach");
-        String loaiKhach = scanner.nextLine();
+        String loaiKhach = InputUtil.selectFromList(SelectionList.getLoaiKhachList(), "Loại Khách", scanner);
         System.out.println("Nhập địa chỉ");
         String diaChi = scanner.nextLine();
         return new Customer(idKhachHang, tenKhachHang, ngayThangNamSinh, gioiTinh, soChungMinhNhanDan, soDienThoai, emailNhanVien, loaiKhach, diaChi);
@@ -63,8 +64,8 @@ public class CustomerView {
         System.out.println("Nhập email khách hàng");
         customer.seteMail(Validate.validateInput("^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$",
                 "Nhập sai, Nhập lại"));
-        System.out.println("Nhập loại khách");
-        customer.setLoaiKhach(scanner.nextLine());
+        String loaiKhach = InputUtil.selectFromList(SelectionList.getLoaiKhachList(), "Loại Khách", scanner);
+        customer.setLoaiKhach(loaiKhach);
         System.out.println("Nhập địa chỉ");
         customer.setDiaChi(scanner.nextLine());
         return customer;

@@ -2,6 +2,8 @@ package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.controllers;
 
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service.CustomerService;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service.EmployeeService;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service.ICustomerService;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service.IEmployeeService;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.Customer;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.Employee;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.view.CustomerView;
@@ -11,8 +13,8 @@ import java.util.Scanner;
 
 public class FuramaController {
     private static Scanner scanner = new Scanner(System.in);
-    private static EmployeeService employeeService = new EmployeeService();
-    private static CustomerService customerService = new CustomerService();
+    private static IEmployeeService employeeService = new EmployeeService();
+    private static ICustomerService customerService = new CustomerService();
 
     public static void displayMainMenu() {
         menuLoop:

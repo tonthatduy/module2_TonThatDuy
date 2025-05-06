@@ -8,11 +8,11 @@ public class Villa extends Facility {
     public Villa() {
     }
 
-    public Villa(int maDichVu, String nameDichVu, double dienTichSuDung, int soLuongNguoiToiDa, String kieuThue) {
+    public Villa(String maDichVu, String nameDichVu, double dienTichSuDung, int soLuongNguoiToiDa, String kieuThue) {
         super(maDichVu, nameDichVu, dienTichSuDung, soLuongNguoiToiDa, kieuThue);
     }
 
-    public Villa(int maDichVu, String nameDichVu, double dienTichSuDung, int soLuongNguoiToiDa, String kieuThue, String tieuChuanPhong, Double dienTichHoBoi, int soTang) {
+    public Villa(String maDichVu, String nameDichVu, double dienTichSuDung, int soLuongNguoiToiDa, String kieuThue, String tieuChuanPhong, Double dienTichHoBoi, int soTang) {
         super(maDichVu, nameDichVu, dienTichSuDung, soLuongNguoiToiDa, kieuThue);
         this.tieuChuanPhong = tieuChuanPhong;
         this.dienTichHoBoi = dienTichHoBoi;

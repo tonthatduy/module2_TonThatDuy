@@ -1,6 +1,5 @@
 package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.common;
 
-import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -34,13 +33,17 @@ public class Validate {
                     "Nhập sai định dạng, Nhập lại đúng định dạng dd-MM-yyyy");
             try {
                 LocalDate date = LocalDate.parse(dateString,formatter);
-                if (date.isAfter(LocalDate.now())){
-                    System.err.println("Ngày không có. Nhập lại");
+                LocalDate today = LocalDate.now();
+                LocalDate minDate = today.minusYears(18);
+                if (date.isAfter(today)){
+                    System.err.println("Không nhập ngày trong tương lai. Nhập lại");
+                } else if (date.isAfter(minDate)){
+                    System.err.println("Chưa đủ 18 tuổi");
                 } else {
                     return dateString;
                 }
             } catch (DateTimeParseException e){
-                System.err.println("Ngày không hợp lệ nhập lại!");
+                System.err.println("Ngày không hợp lệ nhập lại! " + e.getMessage());
             }
         }
     }

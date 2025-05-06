@@ -1,7 +1,9 @@
 package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.view;
 
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.common.SelectionList;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.common.Validate;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.Employee;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.util.InputUtil;
 
 import java.util.List;
 import java.util.Scanner;
@@ -38,10 +40,10 @@ public class EmployeeView {
         System.out.println("Nhập email nhân viên");
         employee.seteMail(Validate.validateInput("^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$",
                 "Nhập sai, Nhập lại"));
-        System.out.println("Nhập trình độ nhân viên");
-        employee.setTrinhDo(scanner.nextLine());
-        System.out.println("Nhập vị trí nhân viên");
-        employee.setViTri(scanner.nextLine());
+        String trinhDo = InputUtil.selectFromList(SelectionList.getTrinhDoList(), "Chọn Trình Độ Nhân Viên", scanner);
+        employee.setTrinhDo(trinhDo);
+        String viTri = InputUtil.selectFromList(SelectionList.getViTriList(), "Chọn Vị Trí", scanner);
+        employee.setViTri(viTri);
         System.out.println("Nhập lương nhân viên(Phải lớn hơn 0)");
         long luong = -1;
         while (luong <= 0) {
@@ -77,10 +79,8 @@ public class EmployeeView {
         System.out.println("Nhập email nhân viên");
         String emailNhanVien = Validate.validateInput("^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$",
                 "Nhập sai, Nhập lại");
-        System.out.println("Nhập trình độ nhân viên");
-        String trinhDo = scanner.nextLine();
-        System.out.println("Nhập vị trí nhân viên");
-        String viTri = scanner.nextLine();
+        String trinhDo = InputUtil.selectFromList(SelectionList.getTrinhDoList(), "Chọn Trình Độ Nhân Viên", scanner);
+        String viTri = InputUtil.selectFromList(SelectionList.getViTriList(), "Chọn Vị Trí", scanner);
         System.out.println("Nhập lương nhân viên(Lương > 0)");
         long luongNhanVien = -1;
         while (luongNhanVien <= 0) {
@@ -97,4 +97,6 @@ public class EmployeeView {
                 soChungMinhNhanDan, soDienThoai, emailNhanVien, trinhDo, viTri, luongNhanVien);
 
     }
+
+
 }

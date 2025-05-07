@@ -1,10 +1,9 @@
-package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service;
+package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.service;
 
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.Customer;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.repository.CustomerRepository;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.repository.ICustomerRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerService implements  ICustomerService{

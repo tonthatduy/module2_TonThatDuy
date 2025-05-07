@@ -1,9 +1,9 @@
 package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.controllers;
 
-import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service.CustomerService;
-import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service.EmployeeService;
-import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service.ICustomerService;
-import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.Service.IEmployeeService;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.service.CustomerService;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.service.EmployeeService;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.service.ICustomerService;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.service.IEmployeeService;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.Customer;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.Employee;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.view.CustomerView;

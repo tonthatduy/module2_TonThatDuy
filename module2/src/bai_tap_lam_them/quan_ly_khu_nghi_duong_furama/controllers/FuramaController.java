@@ -122,7 +122,6 @@ public class FuramaController {
     }
 
 
-
     public static void menuFacility() {
         do {
             System.out.println("---Facility Management---");
@@ -222,16 +221,19 @@ public class FuramaController {
         if (employee == null) {
             System.out.println("Không có trong danh sách");
         } else {
-            employeeService.editEployee(EmployeeView.inputEditEmployee(employee));
+            EmployeeView.inputEditEmployee(employee);
+            employeeService.editEployee(employee);
             System.out.println("---Sửa thành công---");
         }
     }
+
     private static void editCustomer() {
         Customer customer = customerService.findByIDCustomer(CustomerView.findIDCustomer());
-        if (customer==null){
+        if (customer == null) {
             System.out.println("Không có trong danh sách");
         } else {
-            customerService.editCustomer(CustomerView.inputEditCustomer(customer));
+            CustomerView.inputEditCustomer(customer);
+            customerService.editCustomer(customer);
             System.out.println("-----Sửa thành công-----");
         }
     }

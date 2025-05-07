@@ -1,5 +1,7 @@
 package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity;
 
+import java.time.LocalDate;
+
 public abstract class Person {
     private String id;
     private String ten;

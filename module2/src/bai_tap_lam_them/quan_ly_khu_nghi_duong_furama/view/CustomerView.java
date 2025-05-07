@@ -17,6 +17,10 @@ public class CustomerView {
 
         }
     }
+    public static String findIDCustomer() {
+        System.out.println("Nhập mã khách hàng cần sửa ");
+        return scanner.nextLine();
+    }
 
     public static Customer inputDataForCustomer() {
         System.out.println("Nhập id nhân viên(VD: KH-1234):");
@@ -25,9 +29,18 @@ public class CustomerView {
         System.out.println("Nhập tên nhân viên (VD: Nguyen Van A)");
         String tenKhachHang = Validate.validateInput("^([A-Z][a-z]*)\\s([A-Z][a-z]*\\s)*([A-Z][a-z]*)$",
                 "Tên sai định dạng,Nhập lại như ví dụ");
-        String ngayThangNamSinh = Validate.validateDateInput("Nhập ngày tháng năm sinh(VD: 01-01-2025)");
+        String ngayThangNamSinh;
+        while (true){
+            System.out.println("Nhập ngày tháng năm sinh(VD: 01-01-2025)");
+            ngayThangNamSinh=scanner.nextLine();
+            if (Validate.isValidateDateInput(ngayThangNamSinh)){
+                break;
+            }
+            System.err.println("Dữ Liệu không hợp lệ vui lòng nhập lại");
+        }
         System.out.println("Nhập giới tính");
-        String gioiTinh = Validate.validateInput("^(?i)(Nam|Nữ)$",
+
+        String gioiTinh = Validate.validateInput("^(?i)(Nam|Nữ|Khác)$",
                 "Nhập giới tính sai, Nhập lại");
         System.out.println("Nhập chứng minh nhân dân(9-12 số)");
         String soChungMinhNhanDan = Validate.validateInput("^\\d{9,12}$",
@@ -43,31 +56,38 @@ public class CustomerView {
         return new Customer(idKhachHang, tenKhachHang, ngayThangNamSinh, gioiTinh, soChungMinhNhanDan, soDienThoai, emailNhanVien, loaiKhach, diaChi);
     }
 
-    public static String findIDCustomer() {
-        System.out.println("Nhập mã khách hàng cần sửa ");
-        return scanner.nextLine();
-    }
 
-    public static Customer inputEditCustomer(Customer customer) {
+    public static void inputEditCustomer(Customer customer) {
         System.out.println("Nhập tên khách hàng");
-        customer.setTen(Validate.validateInput("^([A-Z][a-z]*)\\s([A-Z][a-z]*\\s)*([A-Z][a-z]*)$",
-                "Tên sai định dạng,Nhập lại như ví dụ"));
-        customer.setNgaySinh(Validate.validateDateInput("Nhập ngày tháng năm sinh(VD: 01-01-2025)"));
+        String tenKhachHang = Validate.validateInput("^([A-Z][a-z]*)\\s([A-Z][a-z]*\\s)*([A-Z][a-z]*)$", "Tên sai định dạng,Nhập lại như ví dụ");
+        customer.setTen(tenKhachHang);
+        String ngayThangNamSinh;
+        while (true){
+            System.out.println("Nhập ngày tháng năm sinh(VD: 01-01-2025)");
+            ngayThangNamSinh = scanner.nextLine();
+            if (Validate.isValidateDateInput(ngayThangNamSinh)){
+                break;
+            }
+            System.err.println("Dữ liệu không hợp lệ vui lòng nhập lại!!!");
+        }
+        customer.setNgaySinh(ngayThangNamSinh);
         System.out.println("Nhập giới tính");
-        customer.setGioiTinh(Validate.validateInput("^(?i)(Nam|Nữ)$",
-                "Nhập giới tính sai, Nhập lại"));
+        String gioiTinh = Validate.validateInput("^(?i)(Nam|Nữ|Khác)$", "Nhập giới tính sai, Nhập lại");
+        customer.setGioiTinh(gioiTinh);
         System.out.println("Nhập chứng minh nhân dân");
-        customer.setSoChungMinhNhanDan(Validate.validateInput("^\\d{9,12}$",
-                "Nhập sai, Nhập từ 9-12 số"));
+        String soChungMinhNhanDan = Validate.validateInput("^\\d{9,12}$",
+                "Nhập sai, Nhập từ 9-12 số");
+        customer.setSoChungMinhNhanDan(soChungMinhNhanDan);
         System.out.println("Nhập số điện thoại");
-        customer.setSoDienThoai(Validate.validateInput("^0\\d{9}$", "Nhập số điện thoại sai, Nhập lại"));
+        String soDienThoai=Validate.validateInput("^0\\d{9}$", "Nhập số điện thoại sai, Nhập lại");
+        customer.setSoDienThoai(soDienThoai);
         System.out.println("Nhập email khách hàng");
-        customer.seteMail(Validate.validateInput("^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$",
-                "Nhập sai, Nhập lại"));
+        String eMail = Validate.validateInput("^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$",
+                "Nhập sai, Nhập lại");
+        customer.seteMail(eMail);
         String loaiKhach = InputUtil.selectFromList(SelectionList.getLoaiKhachList(), "Loại Khách", scanner);
         customer.setLoaiKhach(loaiKhach);
         System.out.println("Nhập địa chỉ");
         customer.setDiaChi(scanner.nextLine());
-        return customer;
     }
 }

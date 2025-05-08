@@ -1,11 +1,11 @@
 package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity;
 
 public abstract class Facility {
-    private  String maDichVu;
-    private  String nameDichVu;
-    private  double dienTichSuDung;
-    private  int soLuongNguoiToiDa;
-    private  String kieuThue;
+    private String maDichVu;
+    private String nameDichVu;
+    private double dienTichSuDung;
+    private int soLuongNguoiToiDa;
+    private String kieuThue;
 
     public Facility() {
     }
@@ -60,12 +60,15 @@ public abstract class Facility {
 
     @Override
     public String toString() {
-        return "Facility{" +
-                "maDichVu=" + maDichVu +
+        return "maDichVu=" + maDichVu +
                 ", nameDichVu='" + nameDichVu + '\'' +
                 ", dienTichSuDung=" + dienTichSuDung +
                 ", soLuongNguoiToiDa=" + soLuongNguoiToiDa +
-                ", kieuThue='" + kieuThue + '\'' +
-                '}';
+                ", kieuThue='" + kieuThue + '\'';
+    }
+
+    public String getInfoToFileFacility() {
+        return this.maDichVu + "," + this.nameDichVu + "," + this.dienTichSuDung + ","
+                + this.soLuongNguoiToiDa + "," + this.kieuThue;
     }
 }

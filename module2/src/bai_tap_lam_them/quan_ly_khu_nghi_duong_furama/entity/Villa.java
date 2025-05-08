@@ -45,11 +45,15 @@ public class Villa extends Facility {
 
     @Override
     public String toString() {
-        return "Villa{" +
+        return "Villa | " +
                 super.toString() +
                 "tieuChuanPhong='" + tieuChuanPhong + '\'' +
                 ", dienTichHoBoi=" + dienTichHoBoi +
                 ", soTang=" + soTang +
-                '}';
+                '|';
+    }
+
+    public String getInfoToFileVilla() {
+        return super.getInfoToFileFacility() + "," + this.tieuChuanPhong + "," + this.dienTichHoBoi + "," + this.soTang;
     }
 }

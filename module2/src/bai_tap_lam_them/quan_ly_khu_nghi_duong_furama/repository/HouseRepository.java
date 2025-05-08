@@ -3,6 +3,7 @@ package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.repository;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.House;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.util.ReadAndWriteFileFurama;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,10 +19,18 @@ public class HouseRepository implements IHouseRepository {
         for (int i = 0; i < stringList.size(); i++) {
             array = stringList.get(i).split(",");
             houseIntegerMap.put(new House(array[0], array[1], Double.parseDouble(array[2]), Integer.parseInt(array[3]),
-                    array[4], array[5], Integer.parseInt(array[6])),0);
+                    array[4], array[5], Integer.parseInt(array[6])), Integer.parseInt(array[7]));
 
         }
-        return Map.of();
+        return houseIntegerMap;
     }
+
+    @Override
+    public void add(House house) {
+        List<String> stringList =new ArrayList<>();
+        stringList.add(house.getInfoToFileHouse());
+        ReadAndWriteFileFurama.writeFile(HOUSE_FILE,stringList,true);
+    }
+
 }
 

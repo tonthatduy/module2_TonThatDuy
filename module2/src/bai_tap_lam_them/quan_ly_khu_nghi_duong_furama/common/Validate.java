@@ -37,4 +37,21 @@ public class Validate {
             return false;
         }
     }
+    public static Double validateInputDoubleGreaterThan30(String regex, String errorMessage) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.matches(regex)) {
+                double value = Double.parseDouble(input);
+                if (value > 30) {
+                    return value;
+                } else {
+                    System.out.println("Giá trị phải lớn hơn 30. Nhập lại:");
+                }
+            } else {
+                System.err.println(errorMessage);
+            }
+        }
+    }
+
 }

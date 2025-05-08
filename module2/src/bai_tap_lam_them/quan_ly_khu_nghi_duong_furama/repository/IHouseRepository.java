@@ -6,4 +6,5 @@ import java.util.Map;
 
 public interface IHouseRepository {
     Map<House, Integer> findAll();
+    void add(House house);
 }

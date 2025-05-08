@@ -30,7 +30,6 @@ public class ReadAndWriteFileFurama {
             }
         } catch (IOException e) {
             System.out.println("Lỗi đọc file");
-            ;
         }
         return strings;
     }

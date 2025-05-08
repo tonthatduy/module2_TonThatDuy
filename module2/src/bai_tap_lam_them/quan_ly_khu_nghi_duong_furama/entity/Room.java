@@ -26,9 +26,13 @@ public class Room extends Facility {
 
     @Override
     public String toString() {
-        return "Room{" +
+        return "Room | " +
                 super.toString() +
                 "dichVuMienPhiDiKem='" + dichVuMienPhiDiKem + '\'' +
-                '}';
+                '|';
+    }
+
+    public String getInfotoFileRoom() {
+        return super.getInfoToFileFacility() + "," + this.dichVuMienPhiDiKem;
     }
 }

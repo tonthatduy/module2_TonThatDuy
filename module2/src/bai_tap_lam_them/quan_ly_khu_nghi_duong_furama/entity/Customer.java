@@ -39,11 +39,11 @@ public class Customer extends Person {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Customer | " +
                 super.toString() +
                 "loaiKhach='" + loaiKhach + '\'' +
                 ", diaChi='" + diaChi + '\'' +
-                '}';
+                '|';
     }
 
     public String getInfoToFileCustomer() {

@@ -83,15 +83,13 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "id='" + id + '\'' +
-                ", ten='" + ten + '\'' +
-                ", ngaySinh='" + ngaySinh + '\'' +
-                ", gioiTinh='" + gioiTinh + '\'' +
-                ", soChungMinhNhanDan=" + soChungMinhNhanDan +
-                ", soDienThoai='" + soDienThoai + '\'' +
-                ", eMail='" + eMail + '\'' +
-                '}';
+        return  "Mã ='" + id + '\'' +
+                ", Ten='" + ten + '\'' +
+                ", Ngay Sinh='" + ngaySinh + '\'' +
+                ", Gioi Tinh='" + gioiTinh + '\'' +
+                ", So Chung Minh Nhan Dan=" + soChungMinhNhanDan +
+                ", So Dien Thoai='" + soDienThoai + '\'' +
+                ", Email='" + eMail + '\'';
     }
 
     protected String getInfoToFilePerson() {

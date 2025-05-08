@@ -44,12 +44,12 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Employee | " +
                 super.toString() +
                 "trinhDo='" + trinhDo + '\'' +
                 ", viTri='" + viTri + '\'' +
                 ", luong=" + luong +
-                '}';
+                '|';
     }
 
     public String getInfoToFileEmployee() {

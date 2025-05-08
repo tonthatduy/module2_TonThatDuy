@@ -1,13 +1,12 @@
 package bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.controllers;
 
-import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.service.CustomerService;
-import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.service.EmployeeService;
-import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.service.ICustomerService;
-import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.service.IEmployeeService;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.service.*;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.Customer;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.entity.Employee;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.view.CustomerView;
 import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.view.EmployeeView;
+import bai_tap_lam_them.quan_ly_khu_nghi_duong_furama.view.FacilityView;
+import ss3_mang.bai_tap.bai_tap_6.TinhTongCacSoOMotCotXacDinh;
 
 import java.util.Scanner;
 
@@ -15,6 +14,7 @@ public class FuramaController {
     private static Scanner scanner = new Scanner(System.in);
     private static IEmployeeService employeeService = new EmployeeService();
     private static ICustomerService customerService = new CustomerService();
+    private static IFacilityService facilityService = new FacilityService();
 
     public static void displayMainMenu() {
         menuLoop:
@@ -110,8 +110,6 @@ public class FuramaController {
                     CustomerView.displayCustomer(customerService.findAll());
                     editCustomer();
                     CustomerView.displayCustomer(customerService.findAll());
-
-
                 }
                 case 4 -> {
                     System.out.println("Return to Main Menu");
@@ -125,15 +123,18 @@ public class FuramaController {
     public static void menuFacility() {
         do {
             System.out.println("---Facility Management---");
-            System.out.println("1.Display list facility");
+            System.out.println("1. Display list facility");
             System.out.println("2. Add new facility");
             System.out.println("3. Display list facility maintenance");
             System.out.println("4.Return main menu");
             int option = readInt("Chọn trong khoảng 1-4", 1, 4);
             switch (option) {
                 case 1 -> {
+                    System.out.println("-----Hiển Thị Dịch Vụ-----");
+                    FacilityView.displayFacilityList(facilityService.findAll());
                 }
                 case 2 -> {
+                    menuAddNewFacility();
                 }
                 case 3 -> {
                 }
@@ -180,7 +181,7 @@ public class FuramaController {
             System.out.println("1.Display list customers use service");
             System.out.println("2.Display list customers get voucher");
             System.out.println("3.Return main menu");
-            int option = readInt("Chọn trong khoảng (1-3", 1, 3);
+            int option = readInt("Chọn trong khoảng (1-3)", 1, 3);
             switch (option) {
                 case 1 -> {
                 }
@@ -188,6 +189,29 @@ public class FuramaController {
                 }
                 case 3 -> {
                     System.out.println("Return to Main Menu");
+                    return;
+                }
+            }
+        } while (true);
+    }
+
+    public static void menuAddNewFacility() {
+        do {
+            System.out.println("---Thêm Mới Dịch Vụ---");
+            System.out.println("1. Add New Villa");
+            System.out.println("2. Add New House");
+            System.out.println("3. Add New Room");
+            System.out.println("4. Back To Menu");
+            int option = readInt("Chọn trong khoảng (1-4)", 1, 4);
+            switch (option) {
+                case 1 -> {
+                }
+                case 2 -> {
+                }
+                case 3 -> {
+                }
+                case 4 -> {
+                    System.out.println("Back to Menu");
                     return;
                 }
             }

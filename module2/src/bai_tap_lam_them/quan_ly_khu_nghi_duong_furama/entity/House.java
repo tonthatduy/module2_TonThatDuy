@@ -36,10 +36,14 @@ public class House extends Facility {
 
     @Override
     public String toString() {
-        return "House{" +
+        return "House | " +
                 super.toString() +
                 "tieuChuanPhong='" + tieuChuanPhong + '\'' +
                 ", soTang=" + soTang +
-                '}';
+                '|';
+    }
+
+    public String getInfoToFileHouse() {
+        return super.getInfoToFileFacility() + "," + this.tieuChuanPhong + "," + this.soTang;
     }
 }

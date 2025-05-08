@@ -19,4 +19,5 @@ public class FacilityRepository implements IFacilityRepository {
         facilityIntegerLinkedHashMap.putAll(iRoomRepository.findAll());
         return facilityIntegerLinkedHashMap;
     }
+
 }

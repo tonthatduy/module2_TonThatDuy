@@ -18,8 +18,9 @@ public class RoomRepository implements IRoomRepository {
         String[] array;
         for (int i = 0; i < stringList.size(); i++) {
             array = stringList.get(i).split(",");
-            roomIntegerMap.put(new Room(array[0], array[1], Double.parseDouble(array[2]), Integer.parseInt(array[3]), array[4],
-                    array[5]), Integer.parseInt(array[6]));
+            roomIntegerMap.put(new Room(array[0], array[1], Double.parseDouble(array[2]), Double.parseDouble(array[3]),
+                    Integer.parseInt(array[4]), array[5],
+                    array[6]), Integer.parseInt(array[7]));
 
         }
         return roomIntegerMap;
@@ -27,8 +28,8 @@ public class RoomRepository implements IRoomRepository {
 
     @Override
     public void add(Room room) {
-        List<String> stringList=new ArrayList<>();
-        stringList.add(room.getInfotoFileRoom());
-        ReadAndWriteFileFurama.writeFile(ROOM_FILE,stringList,true);
+        List<String> stringList = new ArrayList<>();
+        stringList.add(room.getInfotoFileRoom() + ",0");
+        ReadAndWriteFileFurama.writeFile(ROOM_FILE, stringList, true);
     }
 }

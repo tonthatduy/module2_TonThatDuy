@@ -18,8 +18,8 @@ public class HouseRepository implements IHouseRepository {
         String[] array;
         for (int i = 0; i < stringList.size(); i++) {
             array = stringList.get(i).split(",");
-            houseIntegerMap.put(new House(array[0], array[1], Double.parseDouble(array[2]), Integer.parseInt(array[3]),
-                    array[4], array[5], Integer.parseInt(array[6])), Integer.parseInt(array[7]));
+            houseIntegerMap.put(new House(array[0], array[1], Double.parseDouble(array[2]), Double.parseDouble(array[3])
+                    , Integer.parseInt(array[4]), array[5], array[6], Integer.parseInt(array[7])), Integer.parseInt(array[8]));
 
         }
         return houseIntegerMap;
@@ -27,9 +27,9 @@ public class HouseRepository implements IHouseRepository {
 
     @Override
     public void add(House house) {
-        List<String> stringList =new ArrayList<>();
-        stringList.add(house.getInfoToFileHouse());
-        ReadAndWriteFileFurama.writeFile(HOUSE_FILE,stringList,true);
+        List<String> stringList = new ArrayList<>();
+        stringList.add(house.getInfoToFileHouse() + ",0");
+        ReadAndWriteFileFurama.writeFile(HOUSE_FILE, stringList, true);
     }
 
 }

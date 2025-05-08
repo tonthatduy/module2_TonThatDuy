@@ -4,19 +4,22 @@ public abstract class Facility {
     private String maDichVu;
     private String nameDichVu;
     private double dienTichSuDung;
+    private double chiPhiThue;
     private int soLuongNguoiToiDa;
     private String kieuThue;
 
     public Facility() {
     }
 
-    public Facility(String maDichVu, String nameDichVu, double dienTichSuDung, int soLuongNguoiToiDa, String kieuThue) {
+    public Facility(String maDichVu, String nameDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoiToiDa, String kieuThue) {
         this.maDichVu = maDichVu;
         this.nameDichVu = nameDichVu;
         this.dienTichSuDung = dienTichSuDung;
+        this.chiPhiThue = chiPhiThue;
         this.soLuongNguoiToiDa = soLuongNguoiToiDa;
         this.kieuThue = kieuThue;
     }
+
 
     public String getMaDichVu() {
         return maDichVu;
@@ -42,6 +45,14 @@ public abstract class Facility {
         this.dienTichSuDung = dienTichSuDung;
     }
 
+    public double getChiPhiThue() {
+        return chiPhiThue;
+    }
+
+    public void setChiPhiThue(double chiPhiThue) {
+        this.chiPhiThue = chiPhiThue;
+    }
+
     public int getSoLuongNguoiToiDa() {
         return soLuongNguoiToiDa;
     }
@@ -60,15 +71,16 @@ public abstract class Facility {
 
     @Override
     public String toString() {
-        return "maDichVu=" + maDichVu +
-                ", nameDichVu='" + nameDichVu + '\'' +
-                ", dienTichSuDung=" + dienTichSuDung +
-                ", soLuongNguoiToiDa=" + soLuongNguoiToiDa +
-                ", kieuThue='" + kieuThue + '\'';
+        return "Ma Dich Vụ = '" + maDichVu + '\'' +
+                ", Tên Dịch Vụ = '" + nameDichVu + '\'' +
+                ", Dien Tich Su Dung =" + dienTichSuDung +
+                ", Chi Phi Thue = " + chiPhiThue +
+                ", So Luong Nguoi Toi Da= " + soLuongNguoiToiDa +
+                ", Kieu Thue= '" + kieuThue + '\'';
     }
 
     public String getInfoToFileFacility() {
-        return this.maDichVu + "," + this.nameDichVu + "," + this.dienTichSuDung + ","
-                + this.soLuongNguoiToiDa + "," + this.kieuThue;
+        return this.maDichVu + "," + this.nameDichVu + "," + this.dienTichSuDung + "," + this.chiPhiThue + "," +
+                this.soLuongNguoiToiDa + "," + this.kieuThue;
     }
 }

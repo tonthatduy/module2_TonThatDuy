@@ -15,6 +15,9 @@ public class FuramaController {
     private static IEmployeeService employeeService = new EmployeeService();
     private static ICustomerService customerService = new CustomerService();
     private static IFacilityService facilityService = new FacilityService();
+    private static IHouseService houseService = new HouseService();
+    private static IVillaService villaService = new VillaService();
+    private static IRoomService roomService = new RoomService();
 
     public static void displayMainMenu() {
         menuLoop:
@@ -205,10 +208,17 @@ public class FuramaController {
             int option = readInt("Chọn trong khoảng (1-4)", 1, 4);
             switch (option) {
                 case 1 -> {
+                    villaService.add(FacilityView.inputDataForVilla());
+                    System.out.println("-----Thêm Thành Công-----");
                 }
                 case 2 -> {
+                    houseService.add(FacilityView.inputDataForHouse());
+                    System.out.println("-----Thêm Thành Công-----");
                 }
                 case 3 -> {
+                    roomService.add(FacilityView.inputDataForRoom());
+                    System.out.println("-----Thêm Thành Công-----");
+
                 }
                 case 4 -> {
                     System.out.println("Back to Menu");

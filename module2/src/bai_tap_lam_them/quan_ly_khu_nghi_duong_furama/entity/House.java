@@ -7,13 +7,13 @@ public class House extends Facility {
     public House() {
     }
 
-    public House(String maDichVu, String nameDichVu, double dienTichSuDung, int soLuongNguoiToiDa, String kieuThue) {
-        super(maDichVu, nameDichVu, dienTichSuDung, soLuongNguoiToiDa, kieuThue);
+    public House(String maDichVu, String nameDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoiToiDa, String kieuThue) {
+        super(maDichVu, nameDichVu, dienTichSuDung, chiPhiThue, soLuongNguoiToiDa, kieuThue);
     }
 
-    public House(String maDichVu, String nameDichVu, double dienTichSuDung, int soLuongNguoiToiDa,
+    public House(String maDichVu, String nameDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoiToiDa,
                  String kieuThue, String tieuChuanPhong, int soTang) {
-        super(maDichVu, nameDichVu, dienTichSuDung, soLuongNguoiToiDa, kieuThue);
+        super(maDichVu, nameDichVu, dienTichSuDung, chiPhiThue, soLuongNguoiToiDa, kieuThue);
         this.tieuChuanPhong = tieuChuanPhong;
         this.soTang = soTang;
     }

@@ -6,13 +6,13 @@ public class Room extends Facility {
     public Room() {
     }
 
-    public Room(String maDichVu, String nameDichVu, double dienTichSuDung, int soLuongNguoiToiDa, String kieuThue) {
-        super(maDichVu, nameDichVu, dienTichSuDung, soLuongNguoiToiDa, kieuThue);
+    public Room(String maDichVu, String nameDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoiToiDa, String kieuThue) {
+        super(maDichVu, nameDichVu, dienTichSuDung, chiPhiThue, soLuongNguoiToiDa, kieuThue);
     }
 
-    public Room(String maDichVu, String nameDichVu, double dienTichSuDung,
+    public Room(String maDichVu, String nameDichVu, double dienTichSuDung, double chiPhiThue,
                 int soLuongNguoiToiDa, String kieuThue, String dichVuMienPhiDiKem) {
-        super(maDichVu, nameDichVu, dienTichSuDung, soLuongNguoiToiDa, kieuThue);
+        super(maDichVu, nameDichVu, dienTichSuDung, chiPhiThue, soLuongNguoiToiDa, kieuThue);
         this.dichVuMienPhiDiKem = dichVuMienPhiDiKem;
     }
 

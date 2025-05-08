@@ -18,9 +18,9 @@ public class VillaRepository implements IVillaRepository {
         String[] array;
         for (int i = 0; i < stringList.size(); i++) {
             array = stringList.get(i).split(",");
-            villaIntegerMap.put(new Villa(array[0], array[1], Double.parseDouble(array[2]), Integer.parseInt(array[3]),
-                    array[4], array[5], Double.parseDouble(array[6]), Integer.parseInt(array[7])), Integer.parseInt(array[8]));
-
+            villaIntegerMap.put(new Villa(array[0], array[1], Double.parseDouble(array[2]), Double.parseDouble(array[3])
+                    , Integer.parseInt(array[4]), array[5], array[6], Double.parseDouble(array[7]),
+                    Integer.parseInt(array[8])), Integer.parseInt(array[9]));
         }
         return villaIntegerMap;
     }
@@ -28,7 +28,7 @@ public class VillaRepository implements IVillaRepository {
     @Override
     public void add(Villa villa) {
         List<String> stringList = new ArrayList<>();
-        stringList.add(villa.getInfoToFileVilla());
+        stringList.add(villa.getInfoToFileVilla() + ",0");
         ReadAndWriteFileFurama.writeFile(VILLA_FILE, stringList, true);
     }
 }

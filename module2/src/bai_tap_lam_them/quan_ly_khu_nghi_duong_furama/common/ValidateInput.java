@@ -24,6 +24,22 @@ public class ValidateInput {
             System.err.println(errorMessage);
         }
     }
+    public static long validateLuong(String message) {
+        long luong = -1;
+        while (luong <= 0) {
+            System.out.println(message);
+            try {
+                luong = Long.parseLong(scanner.nextLine());
+                if (luong <= 0) {
+                    System.err.println("Lương phải lớn hơn 0. Vui lòng nhập lại.");
+                }
+            } catch (NumberFormatException e) {
+                System.err.println("Sai định dạng. Lương phải là số. Nhập lại.");
+            }
+        }
+        return luong;
+    }
+
 
     public static boolean isValidateDateInput(String input) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");

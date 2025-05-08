@@ -54,19 +54,8 @@ public class EmployeeView {
         employee.setTrinhDo(trinhDo);
         String viTri = InputUtil.selectFromList(SelectionList.getViTriList(), "Chọn Vị Trí", scanner);
         employee.setViTri(viTri);
-        System.out.println("Nhập lương nhân viên(Phải lớn hơn 0)");
-        long luong = -1;
-        while (luong <= 0) {
-            try {
-                luong = Long.parseLong(scanner.nextLine());
-                if (luong <= 0) {
-                    System.err.println("Lương phải lớn hơn 0, Nhập lại");
-                }
-            } catch (NumberFormatException e) {
-                System.err.println("Lương Nhân Viên Sai. Nhập lại");
-            }
-        }
-        employee.setLuong(luong);
+        long luongNhanVien = ValidateInput.validateLuong("Nhập lương nhân viên (Lương > 0):");
+        employee.setLuong(luongNhanVien);
     }
 
     public static Employee inputDataForEmployee() {
@@ -93,18 +82,7 @@ public class EmployeeView {
         String emailNhanVien = ValidateInput.validateInput("^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$", "Nhập sai, Nhập lại");
         String trinhDo = InputUtil.selectFromList(SelectionList.getTrinhDoList(), "Chọn Trình Độ Nhân Viên", scanner);
         String viTri = InputUtil.selectFromList(SelectionList.getViTriList(), "Chọn Vị Trí", scanner);
-        System.out.println("Nhập lương nhân viên(Lương > 0)");
-        long luongNhanVien = -1;
-        while (luongNhanVien <= 0) {
-            try {
-                luongNhanVien = Long.parseLong(scanner.nextLine());
-                if (luongNhanVien <= 0) {
-                    System.err.println("Lương nhân viên phải >0, Nhập lại");
-                }
-            } catch (NumberFormatException e) {
-                System.err.println("Lương nhân viên sai, Nhập lại");
-            }
-        }
+        long luongNhanVien = ValidateInput.validateLuong("Nhập lương nhân viên(Lương > 0)");
         return new Employee(idNhanVien, tenNhanVien, ngayThangNamSinh, gioiTinh,
                 soChungMinhNhanDan, soDienThoai, emailNhanVien, trinhDo, viTri, luongNhanVien);
 

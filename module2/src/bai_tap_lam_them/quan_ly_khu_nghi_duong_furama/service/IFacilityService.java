@@ -6,4 +6,5 @@ import java.util.Map;
 
 public interface IFacilityService {
     Map<Facility,Integer> findAll();
+    Map<Facility,Integer> findListFacilityMaintenance();
 }

@@ -20,4 +20,16 @@ public class FacilityRepository implements IFacilityRepository {
         return facilityIntegerLinkedHashMap;
     }
 
+    @Override
+    public Map<Facility, Integer> findListFacilityMaintenance() {
+        Map<Facility, Integer> facilityMaintenance = new LinkedHashMap<>();
+        for (Map.Entry<Facility, Integer> entry : findAll().entrySet()) {
+            if (entry.getValue() >= 5) {
+                facilityMaintenance.put(entry.getKey(), entry.getValue());
+            }
+        }
+        return facilityMaintenance;
+    }
+
+
 }

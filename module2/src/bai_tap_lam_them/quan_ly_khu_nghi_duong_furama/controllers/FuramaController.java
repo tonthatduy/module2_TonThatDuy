@@ -140,6 +140,8 @@ public class FuramaController {
                     menuAddNewFacility();
                 }
                 case 3 -> {
+                    System.out.println("-----Hiển Thị Dịch Vụ Đang Bảo Trì-----");
+                    FacilityView.displayFacilityListMaintenance(facilityService.findListFacilityMaintenance());
                 }
                 case 4 -> {
                     System.out.println("Return to Main Menu");

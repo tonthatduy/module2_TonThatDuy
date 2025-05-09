@@ -18,6 +18,13 @@ public class FacilityView {
         }
     }
 
+    public static void displayFacilityListMaintenance(Map<Facility, Integer> facilityMaintenance) {
+        for (Map.Entry<Facility, Integer> entry : facilityMaintenance.entrySet()) {
+            System.out.println(entry.getKey() + ", Số lần sử dụng " + entry.getValue());
+        }
+
+    }
+
     public static House inputDataForHouse() {
         System.out.println("Nhập mã dịch vụ (VD: SVHO-0001)");
         String maDichVu = ValidateInput.validateInput("^SVHO-\\d{4}", "Mã dịch vụ sai định dạng.Nhập lại như ví dụ");

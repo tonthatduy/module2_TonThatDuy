@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IVietNamService {
     List<VietNam> findAll();
+
+    void add(VietNam vietNam);
 }

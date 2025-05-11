@@ -13,4 +13,9 @@ public class VietNamService implements IVietNamService {
 
         return vietNamRepository.findAll();
     }
+
+    @Override
+    public void add(VietNam vietNam) {
+
+    }
 }

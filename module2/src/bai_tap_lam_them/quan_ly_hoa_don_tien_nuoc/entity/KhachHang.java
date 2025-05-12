@@ -2,9 +2,10 @@ package bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.entity;
 
 import java.util.Objects;
 
-public abstract class KhachHang {
+public abstract class KhachHang implements Comparable<KhachHang> {
     String id;
     String name;
+
 
     public KhachHang(String id, String name) {
         this.id = id;
@@ -34,7 +35,8 @@ public abstract class KhachHang {
                 ", name='" + name + '\'' +
                 '}';
     }
-    protected abstract String toFileCSV();
+
+    public abstract String toFileCSV();
 
     @Override
     public boolean equals(Object object) {
@@ -46,5 +48,10 @@ public abstract class KhachHang {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    @Override
+    public int compareTo(KhachHang o) {
+        return this.getName().compareTo(o.getName());
     }
 }

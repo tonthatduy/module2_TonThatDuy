@@ -1,6 +1,8 @@
 package bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.controller;
 
 import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.entity.KhachHang;
+import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.entity.KhachHangNoiDia;
+import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.entity.KhachHangQuocTe;
 import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.entity.LoaiKhachHang;
 import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.service.IKhachHangService;
 import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.service.ILoaiKhachHangService;
@@ -23,7 +25,9 @@ public class ManagementController {
             System.out.println("2.  Hiển thị thông tin khách hàng");
             System.out.println("3.  Tìm kiếm khách hàng");
             System.out.println("4.  Xóa khách hàng");
-            System.out.println("5.  Thoát ứng dụng");
+            System.out.println("5.  Sửa thông tin khách hàng");
+            System.out.println("6.  Sắp Xếp Theo Tên ");
+            System.out.println("7.  Thoát ứng dụng");
             System.out.print("Lựa chọn: ");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -43,6 +47,14 @@ public class ManagementController {
                     delete();
                 }
                 case 5 -> {
+                    System.out.println("===Sửa Thông Tin Khách Hàng===");
+                    update();
+                }
+                case 6 -> {
+                    System.out.println("===Sắp Xếp Theo Tên Khách Hàng===");
+                    displayListSortByName();
+                }
+                case 7 -> {
                     System.out.println("Tạm biệt");
                     System.exit(0);
                 }
@@ -131,5 +143,25 @@ public class ManagementController {
             System.out.println("Xóa Thành Công");
         }
 
+    }
+
+    private static void update() {
+        String id = KhachHangView.findIDKhachHang();
+        KhachHang khachHang = khachHangService.findByIDKhachHang(id);
+        if (khachHang == null) {
+            System.out.println("Không có trong danh sách");
+        } else {
+            if (khachHang instanceof KhachHangNoiDia) {
+                KhachHangView.editKhachHangNoiDia(khachHang);
+            } else if (khachHang instanceof KhachHangQuocTe) {
+                KhachHangView.editKhachHangQuoc(khachHang);
+            }
+            khachHangService.update(khachHang);
+        }
+    }
+
+    private static void displayListSortByName() {
+        List<KhachHang> khachHangs = khachHangService.findAllSortByName();
+        KhachHangView.displayListKhachHang(khachHangs);
     }
 }

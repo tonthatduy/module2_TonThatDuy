@@ -24,7 +24,7 @@ public class LoaiKhachHangRepository implements ILoaiKhachHangRepository {
     @Override
     public LoaiKhachHang findById(String type) {
         for (LoaiKhachHang loaiKhachHang : findAll()) {
-            if (loaiKhachHang.getId().equals(type)) {
+            if (loaiKhachHang.getId().equalsIgnoreCase(type)) {
                 return loaiKhachHang;
             }
         }

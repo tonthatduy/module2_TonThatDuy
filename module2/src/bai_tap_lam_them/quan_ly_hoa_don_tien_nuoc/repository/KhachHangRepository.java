@@ -6,6 +6,8 @@ import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.entity.KhachHangNoiDia;
 import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.entity.KhachHangQuocTe;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class KhachHangRepository implements IKhachHangRepository {
@@ -74,6 +76,35 @@ public class KhachHangRepository implements IKhachHangRepository {
             }
         }
         return null;
+    }
+
+    @Override
+    public void update(KhachHang khachHang) {
+        List<KhachHang> khachHangs = findAll();
+        for (int i = 0; i < khachHangs.size(); i++) {
+            if (khachHangs.get(i).getId().equalsIgnoreCase(khachHang.getId())) {
+                khachHangs.set(i, khachHang);
+                break;
+            }
+        }
+        List<String> stringList = new ArrayList<>();
+        for (KhachHang khachHang1 : khachHangs) {
+            stringList.add(khachHang1.toFileCSV());
+        }
+        ReadAndWriteFile.writeFileCSV(PATH, stringList, false);
+
+    }
+
+    public List<KhachHang> findAllSortByName() {
+        List<KhachHang> khachHangs = findAll();
+        Collections.sort(khachHangs);
+//        Collections.sort(khachHangs, new Comparator<KhachHang>() {
+//            @Override
+//            public int compare(KhachHang o1, KhachHang o2) {
+//                return o1.getName().compareTo(o2.getName());
+//            }
+//        });
+        return khachHangs;
     }
 
 

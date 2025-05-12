@@ -34,4 +34,15 @@ public class KhachHangService implements IKhachHangService {
         return repository.findByIDKhachHang(idKhachHang);
     }
 
+    @Override
+    public void update(KhachHang khachHang) {
+        repository.update(khachHang);
+    }
+
+    @Override
+    public List<KhachHang> findAllSortByName() {
+        return repository.findAllSortByName();
+    }
+
+
 }

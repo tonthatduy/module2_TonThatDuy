@@ -14,4 +14,6 @@ public interface IKhachHangRepository {
     void delete(KhachHang khachHang);
 
     KhachHang findByIDKhachHang(String idKhachHang);
+    void update(KhachHang khachHang);
+    List<KhachHang> findAllSortByName();
 }

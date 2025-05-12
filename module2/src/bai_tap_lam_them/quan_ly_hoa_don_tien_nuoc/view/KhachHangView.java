@@ -40,6 +40,13 @@ public class KhachHangView {
         }
     }
 
+    public static void editKhachHangQuoc(KhachHang khachHang) {
+        System.out.println("Nhập tên khách hàng");
+        khachHang.setName(scanner.nextLine());
+        System.out.println("Nhập quốc tịch: ");
+        ((KhachHangQuocTe) khachHang).setQuocTich(scanner.nextLine());
+    }
+
     public KhachHang inputKhachHangVietNam() {
         String idRegex = "KHVN-\\d{4}";
         Pattern pattern = Pattern.compile(idRegex);
@@ -97,8 +104,31 @@ public class KhachHangView {
     }
 
     public static String findIDKhachHang() {
-        System.out.println("Nhập id cần xóa");
+        System.out.println("Nhập id cần sửa/xóa");
         return scanner.nextLine();
     }
+
+    public static void editKhachHangNoiDia(KhachHang khachHang) {
+        System.out.println("Nhập tên khách hàng");
+        khachHang.setName(scanner.nextLine());
+        System.out.println("Nhập địa chỉ khách hàng");
+        ((KhachHangNoiDia) khachHang).setDiaChi(scanner.nextLine());
+        ManagementController.displayLoaiKhachHang();
+        String type;
+        do {
+            System.out.print("chọn loại khách(ID): ");
+            type = scanner.nextLine();
+            if (ManagementController.checkLoaiKhachHang(type)) {
+                type = ManagementController.getTenLoaiKhachHang(type);
+                ((KhachHangNoiDia) khachHang).setType(type);
+                break;
+            } else {
+                System.out.println("Không Hợp Lệ");
+            }
+        } while (true);
+        System.out.print("Nhập định mức tiêu thụ: ");
+        ((KhachHangNoiDia) khachHang).setMucTieuChuan(Double.parseDouble(scanner.nextLine()));
+    }
+
 
 }

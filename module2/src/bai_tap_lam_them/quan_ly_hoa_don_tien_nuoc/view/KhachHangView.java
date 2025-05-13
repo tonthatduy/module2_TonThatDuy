@@ -1,6 +1,6 @@
 package bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.view;
 
-import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.controller.ManagementController;
+import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.controller.MainController;
 import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.entity.KhachHang;
 import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.entity.KhachHangNoiDia;
 import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.entity.KhachHangQuocTe;
@@ -65,13 +65,13 @@ public class KhachHangView {
         String name = scanner.nextLine();
         System.out.println("Nhập địa chỉ khách hàng");
         String diaChi = scanner.nextLine();
-        ManagementController.displayLoaiKhachHang();
+        MainController.displayLoaiKhachHang();
         String type;
         do {
             System.out.print("chọn loại khách(ID): ");
             type = scanner.nextLine();
-            if (ManagementController.checkLoaiKhachHang(type)) {
-                type = ManagementController.getTenLoaiKhachHang(type);
+            if (MainController.checkLoaiKhachHang(type)) {
+                type = MainController.getTenLoaiKhachHang(type);
                 break;
             } else {
                 System.out.println("Không Hợp Lệ");
@@ -113,13 +113,13 @@ public class KhachHangView {
         khachHang.setName(scanner.nextLine());
         System.out.println("Nhập địa chỉ khách hàng");
         ((KhachHangNoiDia) khachHang).setDiaChi(scanner.nextLine());
-        ManagementController.displayLoaiKhachHang();
+        MainController.displayLoaiKhachHang();
         String type;
         do {
             System.out.print("chọn loại khách(ID): ");
             type = scanner.nextLine();
-            if (ManagementController.checkLoaiKhachHang(type)) {
-                type = ManagementController.getTenLoaiKhachHang(type);
+            if (MainController.checkLoaiKhachHang(type)) {
+                type = MainController.getTenLoaiKhachHang(type);
                 ((KhachHangNoiDia) khachHang).setType(type);
                 break;
             } else {

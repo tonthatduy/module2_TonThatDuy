@@ -13,7 +13,7 @@ import bai_tap_lam_them.quan_ly_hoa_don_tien_nuoc.view.KhachHangView;
 import java.util.List;
 import java.util.Scanner;
 
-public class ManagementController {
+public class MainController {
     private static Scanner scanner = new Scanner(System.in);
     private static ILoaiKhachHangService loaiKhachHangService = new LoaiKhachHangService();
     private static IKhachHangService khachHangService = new KhachHangService();
@@ -67,29 +67,36 @@ public class ManagementController {
 
     private static void add() {
         boolean flag = true;
+
         do {
             System.out.println("===Thêm mới khách hàng===");
             System.out.println("1.  Thêm khách hàng Việt Nam");
             System.out.println("2.  Thêm khách hàng nước ngoài");
             System.out.println("3.  Thoát");
             System.out.print("Lụa chọn: ");
-            int choice = Integer.parseInt(scanner.nextLine());
-            switch (choice) {
-                case 1 -> {
-                    System.out.println("===Thêm Khách Hàng Việt nam");
-                    addKhachHangNoiDia();
+            int choice;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1 -> {
+                        System.out.println("===Thêm Khách Hàng Việt nam");
+                        addKhachHangNoiDia();
+                    }
+                    case 2 -> {
+                        System.out.println("===Thêm Khách Hàng Quốc Tế");
+                        addKhachHangQuocTe();
+                    }
+                    case 3 -> {
+                        flag = false;
+                    }
+                    default -> {
+                        System.out.println("Không Hợp Lệ!");
+                    }
                 }
-                case 2 -> {
-                    System.out.println("===Thêm Khách Hàng Quốc Tế");
-                    addKhachHangQuocTe();
-                }
-                case 3 -> {
-                    flag = false;
-                }
-                default -> {
-                    System.out.println("Không Hợp Lệ!");
-                }
+            } catch (NumberFormatException e) {
+                System.out.println("Nhập số");
             }
+
         } while (flag);
     }
 

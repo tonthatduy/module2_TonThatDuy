@@ -57,12 +57,7 @@ public class KhachHangRepository implements IKhachHangRepository {
         khachHangs.remove(khachHang);
         List<String> stringList = new ArrayList<>();
         for (KhachHang khachHang1 : khachHangs) {
-            if (khachHang1 instanceof KhachHangNoiDia) {
-                stringList.add(((KhachHangNoiDia) khachHang1).toFileCSV());
-            } else if (khachHang1 instanceof KhachHangQuocTe) {
-                stringList.add(((KhachHangQuocTe) khachHang1).toFileCSV());
-
-            }
+            stringList.add(khachHang1.toFileCSV());
         }
         ReadAndWriteFile.writeFileCSV(PATH, stringList, false);
     }
